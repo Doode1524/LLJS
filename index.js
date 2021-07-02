@@ -33,18 +33,56 @@ class LinkedList {
   clear() {
     this.head = null;
   }
+  append(node) {
+    let lastNode = this.getLast();
+    lastNode.next = node;
+  }
+  prepend(node) {
+    node.next = this.head;
+    this.head = node;
+  }
+  addNode(target, node) {
+    let pointer = this.head;
+    if (target) {
+      while (pointer.data != target) {
+        pointer = pointer.next;
+      }
+      node.next = pointer.next;
+      pointer.next = node;
+    }
+  }
+  findMiddle() {
+    let pointer1 = this.head;
+    let pointer2 = this.head;
+
+    if (this.head) {
+      while (pointer2 != null && pointer2.next != null) {
+          pointer2 = pointer2.next.next
+          pointer1 = pointer1.next
+      }
+      return pointer1.data
+    }
+  }
 }
 
 let node1 = new ListNode(2);
 let node2 = new ListNode(5);
 let node3 = new ListNode(7);
+let node4 = new ListNode(10);
+let node15 = new ListNode(15);
 
-node1.next = node2;
-node2.next = node3;
+// node1.next = node2;
+// node2.next = node3;
 
 let list = new LinkedList(node1);
+list.prepend(node2);
+list.prepend(node3);
+list.append(node4);
+list.addNode(2, node15);
+console.log(list.findMiddle(), "middle");
 
+console.log(list, "list");
 console.log(list.size(), "size");
 console.log(list.getLast(), "last Node");
 console.log(list.getFirst(), "first node Node");
-console.log(list.clear());
+// console.log(list.clear());
