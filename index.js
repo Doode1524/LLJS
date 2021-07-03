@@ -57,11 +57,25 @@ class LinkedList {
 
     if (this.head) {
       while (pointer2 && pointer2.next) {
-          pointer2 = pointer2.next.next
-          pointer1 = pointer1.next
+        pointer2 = pointer2.next.next;
+        pointer1 = pointer1.next;
       }
-      return pointer1.data
+      return pointer1.data;
     }
+  }
+  deleteNode(target) {
+    let pointer = this.head;
+    let prev = null;
+
+    if (pointer && pointer.data == target) {
+      this.head = pointer.next;
+    }
+
+    while (pointer && pointer.data != target) {
+      prev = pointer;
+      pointer = pointer.next;
+    }
+    prev.next = pointer.next;
   }
 }
 
@@ -84,13 +98,12 @@ list.append(node5);
 list.append(node6);
 list.append(node7);
 list.append(node8);
-list.addNodeAfterTarget(, node15);
+list.addNodeAfterTarget(2, node15);
 
 console.log(list.findMiddle(), "middle"); /// Charles' Code Challenge
 
 console.log(list, "list");
 console.log(list.size(), "size");
-
 
 // console.log(list.getLast(), "last Node");
 // console.log(list.getFirst(), "first node Node");
