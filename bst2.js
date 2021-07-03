@@ -1,4 +1,4 @@
-
+const treeify = require('treeify')
 
 class Node {
   constructor(value) {
@@ -20,7 +20,7 @@ class BST {
       return this;
     }
     let current = this.root;
-    while (true) {
+    function addNode() {
       if (value === current.value) return undefined;
       if (value < current.value) {
         if (!current.left) {
@@ -28,14 +28,17 @@ class BST {
           return this;
         }
         current = current.left;
+        addNode()
       } else if (value > current.value) {
         if (!current.right) {
           current.right = newNode;
           return this;
         }
         current = current.right;
+        addNode()
       }
     }
+    addNode()
   }
 }
 
@@ -50,3 +53,34 @@ tree.insert(25);
 tree.insert(32);
 
 console.log(treeify.asTree(tree, true));
+
+// class BST {
+//     constructor() {
+//       this.root = null;
+//     }
+//     insert(value) {
+//       const newNode = new Node(value);
+  
+//       if (!this.root) {
+//         this.root = newNode;
+//         return this;
+//       }
+//       let current = this.root;
+//       while (true) {
+//         if (value === current.value) return undefined;
+//         if (value < current.value) {
+//           if (!current.left) {
+//             current.left = newNode;
+//             return this;
+//           }
+//           current = current.left;
+//         } else if (value > current.value) {
+//           if (!current.right) {
+//             current.right = newNode;
+//             return this;
+//           }
+//           current = current.right;
+//         }
+//       }
+//     }
+//   }
