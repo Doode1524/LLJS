@@ -69,12 +69,18 @@ class LinkedList {
 
     if (pointer && pointer.data == target) {
       this.head = pointer.next;
+      return;
     }
 
     while (pointer && pointer.data != target) {
       prev = pointer;
       pointer = pointer.next;
     }
+
+    if (pointer == null) {
+        return
+    }
+
     prev.next = pointer.next;
   }
 }
@@ -99,6 +105,9 @@ list.append(node6);
 list.append(node7);
 list.append(node8);
 list.addNodeAfterTarget(2, node15);
+// list.deleteNode(5)
+// list.deleteNode(13)
+// list.deleteNode(15)
 
 console.log(list.findMiddle(), "middle"); /// Charles' Code Challenge
 
