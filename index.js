@@ -88,7 +88,7 @@ class LinkedList {
     let prev = null;
 
     if (index == 0) {
-      node.next = this.head
+      node.next = this.head;
       this.head = node;
     } else {
       pointer = this.head;
@@ -103,6 +103,17 @@ class LinkedList {
       node.next = pointer;
       prev.next = node;
     }
+  }
+  findIndexOf(target) {
+    let count = 0;
+    let pointer = this.head;
+
+    while (pointer) {
+      if (pointer.data == target) return count;
+      count++;
+      pointer = pointer.next;
+    }
+    return -1;
   }
 }
 
@@ -137,6 +148,7 @@ list.addNodeToIndex(nodeAt4, 4);
 // list.deleteNode(15)
 
 console.log(list.findMiddle(), "middle"); /// Charles' Code Challenge
+console.log(list.findIndexOf(2), "index");
 
 console.log(list, "list");
 console.log(list.size(), "size");
