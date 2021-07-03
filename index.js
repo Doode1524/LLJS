@@ -88,8 +88,8 @@ class LinkedList {
     let prev = null;
 
     if (index == 0) {
-      node.next = pointer;
-      pointer = node;
+      node.next = this.head
+      this.head = node;
     } else {
       pointer = this.head;
       let count = 0;
@@ -117,6 +117,7 @@ let node8 = new ListNode(14);
 let node15 = new ListNode(15);
 let nodeAt3 = new ListNode(3);
 let nodeAt4 = new ListNode(4);
+let nodeAt0 = new ListNode(1);
 
 let list = new LinkedList(node1);
 
@@ -130,6 +131,7 @@ list.append(node8);
 list.addNodeAfterTarget(2, node15);
 list.addNodeToIndex(nodeAt3, 3);
 list.addNodeToIndex(nodeAt4, 4);
+// list.addNodeToIndex(nodeAt0, 0);
 // list.deleteNode(5)
 // list.deleteNode(13)
 // list.deleteNode(15)
