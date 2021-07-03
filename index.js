@@ -41,7 +41,7 @@ class LinkedList {
     node.next = this.head;
     this.head = node;
   }
-  addNode(target, node) {
+  addNodeAfterTarget(target, node) {
     let pointer = this.head;
     if (target) {
       while (pointer.data != target) {
@@ -56,7 +56,7 @@ class LinkedList {
     let pointer2 = this.head;
 
     if (this.head) {
-      while (pointer2 != null && pointer2.next != null) {
+      while (pointer2 && pointer2.next) {
           pointer2 = pointer2.next.next
           pointer1 = pointer1.next
       }
@@ -69,20 +69,32 @@ let node1 = new ListNode(2);
 let node2 = new ListNode(5);
 let node3 = new ListNode(7);
 let node4 = new ListNode(10);
+let node5 = new ListNode(11);
+let node6 = new ListNode(12);
+let node7 = new ListNode(13);
+let node8 = new ListNode(14);
 let node15 = new ListNode(15);
 
-// node1.next = node2;
-// node2.next = node3;
-
 let list = new LinkedList(node1);
+
 list.prepend(node2);
 list.prepend(node3);
 list.append(node4);
-list.addNode(2, node15);
-console.log(list.findMiddle(), "middle");
+list.append(node5);
+list.append(node6);
+list.append(node7);
+list.append(node8);
+list.addNodeAfterTarget(, node15);
+
+console.log(list.findMiddle(), "middle"); /// Charles' Code Challenge
 
 console.log(list, "list");
 console.log(list.size(), "size");
-console.log(list.getLast(), "last Node");
-console.log(list.getFirst(), "first node Node");
+
+
+// console.log(list.getLast(), "last Node");
+// console.log(list.getFirst(), "first node Node");
 // console.log(list.clear());
+
+// node1.next = node2;
+// node2.next = node3;
