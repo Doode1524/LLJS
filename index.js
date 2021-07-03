@@ -113,7 +113,7 @@ class LinkedList {
       count++;
       pointer = pointer.next;
     }
-    return -1;
+    return -1; // avoid undefined
   }
 }
 
@@ -148,7 +148,7 @@ list.addNodeToIndex(nodeAt4, 4);
 // list.deleteNode(15)
 
 console.log(list.findMiddle(), "middle"); /// Charles' Code Challenge
-console.log(list.findIndexOf(2), "index");
+console.log(list.findIndexOf(15), "15's index");
 
 console.log(list, "list");
 console.log(list.size(), "size");
@@ -159,3 +159,5 @@ console.log(list.size(), "size");
 
 // node1.next = node2;
 // node2.next = node3;
+
+
