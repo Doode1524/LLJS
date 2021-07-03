@@ -51,6 +51,8 @@ tree.insert(15);
 tree.insert(30);
 tree.insert(25);
 tree.insert(32);
+tree.insert(12);
+tree.insert(16);
 
 console.log(treeify.asTree(tree, true));
 

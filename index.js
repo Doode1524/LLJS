@@ -132,6 +132,8 @@ let nodeAt0 = new ListNode(1);
 
 let list = new LinkedList(node1);
 
+
+
 list.prepend(node2);
 list.prepend(node3);
 list.append(node4);
@@ -152,6 +154,20 @@ console.log(list.findIndexOf(15), "15's index");
 
 console.log(list, "list");
 console.log(list.size(), "size");
+
+function reverseList(list) {
+  let prev = null
+  let pointer = null
+
+  while(list.head != null) {
+    pointer = list.head.next
+    list.head.next = prev
+    prev = list.head
+    list.head = pointer
+  }
+  return prev
+}
+console.log(reverseList(list), 'reverse')
 
 // console.log(list.getLast(), "last Node");
 // console.log(list.getFirst(), "first node Node");
