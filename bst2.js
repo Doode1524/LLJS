@@ -1,4 +1,4 @@
-const treeify = require('treeify')
+// const treeify = require("treeify");
 
 class Node {
   constructor(value) {
@@ -7,6 +7,7 @@ class Node {
     this.right = null;
   }
 }
+
 
 class BST {
   constructor() {
@@ -28,17 +29,31 @@ class BST {
           return this;
         }
         current = current.left;
-        addNode()
+        addNode();
       } else if (value > current.value) {
         if (!current.right) {
           current.right = newNode;
           return this;
         }
         current = current.right;
-        addNode()
+        addNode();
       }
     }
-    addNode()
+    addNode();
+  }
+  find(value) {
+    if (!this.root) return undefined;
+    let current = this.root;
+    let found = false;
+
+    while (current && !found) {
+      if (value < current.value) current = current.left;
+      else if (value > current.value) current = current.right;
+      else found = true;
+    }
+
+    if (!found) return "Nothing Found!";
+    return current;
   }
 }
 
@@ -54,7 +69,10 @@ tree.insert(32);
 tree.insert(12);
 tree.insert(16);
 
-console.log(treeify.asTree(tree, true));
+console.log(tree)
+console.log(tree.find(20), 'find')
+
+// console.log(treeify.asTree(tree, true));
 
 // class BST {
 //     constructor() {
@@ -62,7 +80,7 @@ console.log(treeify.asTree(tree, true));
 //     }
 //     insert(value) {
 //       const newNode = new Node(value);
-  
+
 //       if (!this.root) {
 //         this.root = newNode;
 //         return this;
