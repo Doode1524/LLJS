@@ -9,14 +9,8 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
-  size() {
-    let count = 0;
-    let node = this.head;
-    while (node) {
-      count++;
-      node = node.next;
-    }
-    return count;
+  getFirst() {
+    return this.head;
   }
   getLast() {
     let lastNode = this.head;
@@ -27,12 +21,6 @@ class LinkedList {
     }
     return lastNode;
   }
-  getFirst() {
-    return this.head;
-  }
-  clear() {
-    this.head = null;
-  }
   append(node) {
     let lastNode = this.getLast();
     lastNode.next = node;
@@ -40,6 +28,15 @@ class LinkedList {
   prepend(node) {
     node.next = this.head;
     this.head = node;
+  }
+  size() {
+    let count = 0;
+    let node = this.head;
+    while (node) {
+      count++;
+      node = node.next;
+    }
+    return count;
   }
   addNodeAfterTarget(target, node) {
     let pointer = this.head;
@@ -132,8 +129,6 @@ let nodeAt0 = new ListNode(1);
 
 let list = new LinkedList(node1);
 
-
-
 list.prepend(node2);
 list.prepend(node3);
 list.append(node4);
@@ -156,18 +151,22 @@ console.log(list, "list");
 console.log(list.size(), "size");
 
 function reverseList(list) {
-  let prev = null
-  let pointer = null
+  let prev = null;
+  let pointer = null;
 
-  while(list.head != null) {
-    pointer = list.head.next
-    list.head.next = prev
-    prev = list.head
-    list.head = pointer
+  while (list.head != null) {
+    pointer = list.head.next;
+    console.log(pointer, "pointer");
+    list.head.next = prev;
+    console.log(list.head.next, "lhn");
+    prev = list.head;
+    console.log(prev, "prev");
+    list.head = pointer;
+    console.log(list.head, "lh");
   }
-  return prev
+  return prev;
 }
-console.log(reverseList(list), 'reverse')
+console.log(reverseList(list), "reverse");
 
 // console.log(list.getLast(), "last Node");
 // console.log(list.getFirst(), "first node Node");
@@ -175,5 +174,3 @@ console.log(reverseList(list), 'reverse')
 
 // node1.next = node2;
 // node2.next = node3;
-
-
